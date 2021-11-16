@@ -1,20 +1,17 @@
 const puppeteer = require('puppeteer');
 const usrData = require('./userpass.json');
 const data = require('./bot.json');
-const Discord = require('discord.js'); //import discord.js
-require('discord-reply');
-
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
-
-
-
+const Discord = require('discord.js'); 
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 
 
 //!!!!! warining data clear !!!!!! when printing out userpass.json
-console.log(usrData);
+//console.log(usrData);
     console.log("data succesfully imported from userpass.json !");
 let url = "https://formations.cci-paris-idf.fr/UTEC/index.php";
+
+
 //delay function for waiforTimeout()    
 function delay(time) {
     return new Promise(function(resolve) { 
@@ -23,9 +20,11 @@ function delay(time) {
  };
 
 
+
+
 const fetchEdt = (async () => {
     
-    const browser = await puppeteer.launch({headless:false});
+    const browser = await puppeteer.launch({headless:true});
     console.log("browser launched");
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 768});    
@@ -44,7 +43,7 @@ const fetchEdt = (async () => {
     await page.waitForTimeout(4000);
     console.log("wait 10 second until the page load");
         for(i = 0; i <11; i++){
-        await page.waitForTimeout(1000)
+        await page.waitForTimeout(1000);
             console.log( ": "+ i);
     }
 
@@ -61,20 +60,26 @@ const fetchEdt = (async () => {
         await page.screenshot({
         path: 'edt.png'
     });
-    
 
 
     //console.log("envoie de l'emploi du temps sur discord dans le channel (nom du channel")
 });
 
-function sendEdt(){
-    const SendingToDiscord = new Discord.MessageAttachment('https://randomdev.fr/wp-content/uploads/2020/05/IMG_2918-scaled-e1588871523945-932x1024.jpeg');
-}
-
 client.on('ready', () => {
-    fetchEdt()
-    sendEdt()
-        
-  });
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+
+client.on('messageCreate', message => {
+  if (message.content === '!edt') {
+    message.channel.send("retrieving edt ...");
+    message.channel.send("emploi du temps disponible dans le salon #planning-de-la-semaine")
+    client.channels.cache.get(`890482091454767104`).send({files : ['images/edt.png'],});
+  }
+});
+
 
   client.login(data.token);
+  
+
+   
