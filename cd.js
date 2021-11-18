@@ -22,7 +22,7 @@ function delay(time) {
 
 
 
-const fetchEdt = (async () => {
+(async () => {
     
     const browser = await puppeteer.launch({headless:true});
     console.log("browser launched");
@@ -58,12 +58,12 @@ const fetchEdt = (async () => {
     await page.click("#btn-full-screen-planning-apprenant-3709966");
     console.log("screenshoted");
         await page.screenshot({
-        path: 'edt.png'
+        path: 'images/edt.png'
     });
 
 
     //console.log("envoie de l'emploi du temps sur discord dans le channel (nom du channel")
-});
+})()
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -77,9 +77,96 @@ client.on('messageCreate', message => {
     client.channels.cache.get(`890482091454767104`).send({files : ['images/edt.png'],});
   }
 });
+client.on('messageCreate', message => {
+  if (message.content === '!amine') {
+    message.channel.send("un amine sauvage aparraifeft")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/amine.png'],});
+  }
+});
 
 
-  client.login(data.token);
+client.on('messageCreate', message => {
+  if (message.content === '!tibo') {
+    message.channel.send("#autiste Gang!")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/tibo.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!dani') {
+    message.channel.send("#il était dans la meme voiture que tibo!")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/dani.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!romin') {
+    message.channel.send("#il aime les enfants")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/romin.png'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!negro') {
+    message.channel.send("#KIRIKOU")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/negro.mov'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!matis') {
+    message.channel.send("#c'est mathis avec un gros crâne mdrr")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/matis.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!alaixandre') {
+    message.channel.send("#c'est un terroriste mdrr")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/huskedd.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!dodo') {
+    message.channel.send("#si y'a une attaque ont est mal");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/dodo.jpg'],});
+  }
+});
+
+
+client.on('messageCreate', message => {
+  if (message.content === '!avionbite') {
+    message.channel.send("#les tours jumelles");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/avionbite.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!baba') {
+    message.channel.send("#UN prof tout à fais banal");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/baba.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!babamaiscunemeuf') {
+    message.channel.send("baba mais c'est une meuf mdr");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/babamaiscunemeuf.jpg'],});
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content === '!arouf') {
+    message.channel.send("il pointe comme une souris");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/arouuf.jpg'],});
+  }
+});
+
+
+(async () => {
+     client.login(data.token)
+})();
   
 
    
