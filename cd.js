@@ -19,12 +19,9 @@ function delay(time) {
     });
  };
 
-
-
-
 (async () => {
     
-    const browser = await puppeteer.launch({headless:true});
+    const browser = await puppeteer.launch({headless:false});
     console.log("browser launched");
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 768});    
@@ -34,7 +31,7 @@ function delay(time) {
     console.log("connection au compte");
     await page.type('#login', usrData.username);
     await page.type('#password', usrData.password);
-    url = "https://formations.cci-paris-idf.fr/UTEC/index.php/apprenant/planning/courant/?semaineDebut=202146&ressources=YToxOntpOjA7YToyOntzOjQ6ImNvZGUiO2k6MzcwOTk2NjtzOjQ6InR5cGUiO2k6NzUwMDt9fQ==&modeAffichage=0";
+    url = "https://formations.cci-paris-idf.fr/UTEC/index.php/apprenant/planning/courant/?semaineDebut=202147&ressources=YToxOntpOjA7YToyOntzOjQ6ImNvZGUiO2k6MzcwOTk2NjtzOjQ6InR5cGUiO2k6NzUwMDt9fQ==&modeAffichage=0";
 
 
     await page.click('#btnSeConnecter');
@@ -76,93 +73,36 @@ client.on('messageCreate', message => {
     message.channel.send("emploi du temps disponible dans le salon #planning-de-la-semaine")
     client.channels.cache.get(`890482091454767104`).send({files : ['images/edt.png'],});
   }
-});
-client.on('messageCreate', message => {
-  if (message.content === '!amine') {
-    message.channel.send("un amine sauvage aparraifeft")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/amine.png'],});
+  if(message.content === '!tibo'){
+    message.channel.send("il a la gaule sur sa photo insta ")
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/tibo.jpg']})
+  } 
+  if(message.content == '!amine'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/amine.png']})
+  }
+  if(message.content == '!dani'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/dani.jpg']})
+  } if(message.content == '!avionbite'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/avionbite.jpg']})
+  } if(message.content == '!alaixandre'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/huskedd.jpg']})
+  }
+  if(message.content == '!baba'){
+    message.channel.send("si y'a une attaque on est mal");
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/dodo.jpg']});
+  }
+  if(message.content == '!baba'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/baba.jpg']});
+  }
+  if(message.content == '!kirikou version wii party'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/negro.mov']});
+  }
+  if(message.content == '!roumin'){
+    client.channels.cache.get(`890225002643877908`).send({files : ['images/romin.jpg']});
   }
 });
 
-
-client.on('messageCreate', message => {
-  if (message.content === '!tibo') {
-    message.channel.send("#autiste Gang!")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/tibo.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!dani') {
-    message.channel.send("#il était dans la meme voiture que tibo!")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/dani.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!romin') {
-    message.channel.send("#il aime les enfants")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/romin.png'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!negro') {
-    message.channel.send("#KIRIKOU")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/negro.mov'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!matis') {
-    message.channel.send("#c'est mathis avec un gros crâne mdrr")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/matis.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!alaixandre') {
-    message.channel.send("#c'est un terroriste mdrr")
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/huskedd.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!dodo') {
-    message.channel.send("#si y'a une attaque ont est mal");
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/dodo.jpg'],});
-  }
-});
-
-
-client.on('messageCreate', message => {
-  if (message.content === '!avionbite') {
-    message.channel.send("#les tours jumelles");
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/avionbite.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!baba') {
-    message.channel.send("#UN prof tout à fais banal");
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/baba.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!babamaiscunemeuf') {
-    message.channel.send("baba mais c'est une meuf mdr");
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/babamaiscunemeuf.jpg'],});
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.content === '!arouf') {
-    message.channel.send("il pointe comme une souris");
-    client.channels.cache.get(`890225002643877908`).send({files : ['images/arouuf.jpg'],});
-  }
-});
-
+//make a command handler to simplify the syntax
 
 (async () => {
      client.login(data.token)
