@@ -6,7 +6,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 
 
-//!!!!! warining data clear !!!!!! when printing out userpass.json
+//!!!!! warining data is echoed !!!!!! when printing out userpass.json
 //console.log(usrData);
     console.log("data succesfully imported from userpass.json !");
 let url = "https://formations.cci-paris-idf.fr/UTEC/index.php";
