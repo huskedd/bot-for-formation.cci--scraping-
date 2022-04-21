@@ -1,6 +1,6 @@
 ## installation steps
-#### puppeteer documentation 
-pptr.dev
+#### puppeteer documentation https://pptr.dev
+
 
 #### This bot just screenshot the timetable of the week made this because everytime i want to check my timetable the website is slow/offline (for no reason 🤷‍♂️)
 
